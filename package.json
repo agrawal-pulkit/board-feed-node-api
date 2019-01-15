@@ -42,7 +42,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "log4js": "^1.1.1",
-    "moment": "^2.19.2",
+    "moment": "^2.23.0",
     "mongoose": "*",
     "path": "^0.12.7",
     "q": "^1.4.1",

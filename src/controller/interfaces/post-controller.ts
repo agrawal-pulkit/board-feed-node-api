@@ -7,5 +7,6 @@ import { Request, Response } from "express";
 export interface PostControllerInterface {
     postDao : PostDaoInterface;
     createNewPost( request: Request, response: Response) : Q.Promise<any>;
+    updatePost( request: Request, response: Response) : Q.Promise<any>;
     getReleventPost( request: Request, response: Response) : Q.Promise<any>;
 }

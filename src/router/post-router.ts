@@ -44,6 +44,7 @@ export class PostRouter implements PostRouterInterface {
      */
     private init(): void {
         this.router.post("/", this.createNewPost.bind(this));
+        this.router.put("/", this.updatePost.bind(this));
         this.router.get("/", this.getReleventPost.bind(this));
     }
 
@@ -54,7 +55,7 @@ export class PostRouter implements PostRouterInterface {
      * @param { Response } response
      * @returns {*} 
      * 
-     * @memberOf UserRouter
+     * @memberOf PostRouter
      */
     createNewPost(request: Request, response: Response): any {
         log.debug("create new User: ", request.body);
@@ -70,13 +71,36 @@ export class PostRouter implements PostRouterInterface {
         });
     }
 
+
+    /**
+     * update if any like, comment and share happens on post
+     * @param { Request } request 
+     * @param { Response } response
+     * @returns {*} 
+     * 
+     * @memberOf PostRouter
+     */
+    updatePost(request: Request, response: Response): any {
+        log.debug("create new User: ", request.body);
+        let updatePostPromise : Q.Promise<any> = this.postController.updatePost(request, response);
+
+        updatePostPromise.then((user: any)=>{
+            log.debug("updatePostPromise: ", user);
+            return response.status(200).send(user);
+        });
+        updatePostPromise.catch((error: Error)=>{
+            log.warn("updatePostPromise: ", error);
+            return response.status(500).send(error);
+        });
+    }
+
     /**
      * 
      * @param { Request } request 
      * @param { Response } response
      * @returns {*} 
      * 
-     * @memberOf UserRouter
+     * @memberOf PostRouter
      */
     getReleventPost(request: Request, response: Response): any {
         let createNewUserPromise : Q.Promise<any> = this.postController.getReleventPost(request, response);

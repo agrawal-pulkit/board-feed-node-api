@@ -16,6 +16,7 @@ const log = new LogConfig().getLogger("PostController");
  * @implements { PostControllerInterface }
  */
 export class PostController implements PostControllerInterface {
+    
     postDao : PostDaoInterface
 
     /**
@@ -47,6 +48,32 @@ export class PostController implements PostControllerInterface {
             deferred.resolve({ status : "success", userObject : createdPost });
         })
         createNewPostPromise.catch((error: Error)=>{
+            log.warn("error in creating user :", error);
+            deferred.reject(error)
+        })  
+
+        return deferred.promise;
+    }
+
+    /**
+     * update post
+     * @param { Request } request
+     * @param { Response } response
+     * @returns  { Q.Promise<any> }
+     * 
+     * @memberOf PostController
+     */
+    updatePost(request: Request, response: Response ) : Q.Promise<any> {
+
+        let deferred : Q.Deferred<any> = Q.defer();
+        let postData : any = request.body
+        let updatePostPromise = this.postDao.updatePost(postData);
+
+        updatePostPromise.then((updatedPost: any)=>{
+            log.debug("update post :", updatedPost);
+            deferred.resolve({ status : "success", userObject : updatedPost });
+        })
+        updatePostPromise.catch((error: Error)=>{
             log.warn("error in creating user :", error);
             deferred.reject(error)
         })  
