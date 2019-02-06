@@ -1,15 +1,9 @@
 {
-  "name": "self-study-authorization-api",
+  "name": "board-feed-api",
   "version": "1.0.0",
-  "description": "authorization of self-study project ",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://pulkit1213069@bitbucket.org/selfstudyteam/self-study-authorization-api.git"
-  },
   "author": "Pulkit Agrawal",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/selfstudyteam/self-study-authorization-api#readme",
   "scripts": {
     "rimraf": "rimraf",
     "tslint": "tslint src/**/*.ts",
@@ -46,7 +40,8 @@
     "mongoose": "*",
     "path": "^0.12.7",
     "q": "^1.4.1",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "serverless-http": "*"
   },
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
@@ -61,6 +56,7 @@
     "tslint": "^3.8.1",
     "typedoc": "^0.3.12",
     "typescript": "^2.4.2",
-    "typings": "^2.1.1"
+    "typings": "^2.1.1",
+    "serverless-offline": "*"
   }
 }

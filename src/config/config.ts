@@ -6,7 +6,7 @@ let config = require("../config");
  */
 class ApplicationConfig {
     public static MONGO_DB_URL : string = config.MONGO_DB_URL
-    public static PORT : number = 3000;
+    public static PORT : number = 4001;
     public static LOG_DIR = config.LOG_DIR ? config.LOG_DIR : "./logs/";
     public static LOG_FILE_NAME = config.LOG_FILE_NAME ? config.LOG_FILE_NAME : "app.log";
     public static LOG_ERROR_FILE_NAME = config.LOG_ERROR_FILE_NAME ? config.LOG_ERROR_FILE_NAME : "error.log";

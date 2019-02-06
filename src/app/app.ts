@@ -2,6 +2,7 @@ import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as cookieParser from "cookie-parser";
 import CONFIG = require("./../config/config");
+const sls = require("serverless-http")
 
 //db-connection
 import * as mongoose from "mongoose";
@@ -88,6 +89,5 @@ function getRoutes() : void {
 app.listen(CONFIG.PORT, () => {
   log.info("Dashboard API server listening on port %d ", CONFIG.PORT);
 });
-
-module.exports = app;
-module.exports.connection = connection;
+// module.exports.connection = connection;
+module.exports.server = sls(app)

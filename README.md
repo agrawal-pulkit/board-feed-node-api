@@ -1,3 +1,19 @@
-#hq board 
+# Board feed Nodejs Serverless Rest API
 
-`https://docs.mongodb.com/manual/tutorial/sort-results-with-indexes/`
+
+setps for start application
+```
+npm install
+npm run build
+npm run start
+```
+
+run by serverless:
+```
+serverless offline --port 4000
+or
+serveless deploy
+```
+
+
+
